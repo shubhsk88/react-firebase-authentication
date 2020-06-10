@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import Navigation from '../Navigation';
 import LandingPage from '../Landing';
 import SignUpPage from '../SignUp';
@@ -18,7 +18,7 @@ export const App = () => {
       <hr />
       <Route exact path={ROUTES.LANDING} component={LandingPage} />
       <Route exact path={ROUTES.SIGN_IN} component={SignInPage} />
-      <Route exact path={ROUTES.SIGN_UP} component={SignUpPage} />
+      <Route exact path={ROUTES.SIGN_UP} component={withRouter(SignUpPage)} />
       <Route exact path={ROUTES.HOME} component={HomePage} />
       <Route
         exact
@@ -30,5 +30,3 @@ export const App = () => {
     </Router>
   );
 };
-
-
