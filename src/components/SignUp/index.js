@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as ROUTES from '../../constants/routes';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { withFirebase } from '../Firebase/';
 const SignUpPage = () => {
   return (
@@ -46,7 +46,7 @@ const SignUpFormBase = ({ firebase }) => {
     signup.email === '' ||
     signup.username === '';
 
-  console.log(signup);
+  
 
   return (
     <form onSubmit={onSubmit}>
@@ -88,6 +88,12 @@ const SignUpFormBase = ({ firebase }) => {
 
 const SignUpForm = withFirebase(SignUpFormBase);
 
+const SignUpLink = () => (
+  <p>
+    Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+  </p>
+);
+
 export default SignUpPage;
 
-export { SignUpForm };
+export { SignUpForm, SignUpLink };
